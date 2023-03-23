@@ -6,8 +6,21 @@ class Tooltip extends HTMLElement {
         this.attachShadow({ mode: 'open' }); // activar/ abrir shadow DOM
         // Nota: debemos acceder al DOM Virtual mediante this.shadowRoot
         // console.log('Tooltip Component');
-        const template = document.querySelector('#tooltip-template');
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        // const template = document.querySelector('#tooltip-template');
+        // this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                div {
+                    background-color: black;
+                    color: white;
+                    position: absolute;
+                    z-index: 10;
+                }
+            </style>
+            <slot>Some default</slot>
+            <span> (?)</span>
+        `;
     }
 
     // Cuando se momnta en el dom el componente
@@ -30,10 +43,10 @@ class Tooltip extends HTMLElement {
         this._tooltipContainer = document.createElement('div');
         this._tooltipContainer.textContent = this._tooltipText;
         // console.log(this._tooltipContainer.style);
-        this._tooltipContainer.style.backgroundColor = 'black';
-        this._tooltipContainer.style.color = 'white';
-        this._tooltipContainer.style.position = 'absolute';
-        this._tooltipContainer.style.zIndex = '10';
+        // this._tooltipContainer.style.backgroundColor = 'black';
+        // this._tooltipContainer.style.color = 'white';
+        // this._tooltipContainer.style.position = 'absolute';
+        // this._tooltipContainer.style.zIndex = '10';
         this.shadowRoot.appendChild(this._tooltipContainer);
 
     }
