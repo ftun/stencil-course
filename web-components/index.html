@@ -8,9 +8,36 @@
     <script src="./tooltip.js"></script>
     <script src="./confirm-link.js"></script>
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            /* se crea valirable para que se puede acceden dentro del shadow-dom del web component y otros archivos css */
+            --color-primary: lightseagreen;
+            font-family: sans-serif;
+        }
+
         div {
             border: 2px solid orange;
         }
+
+        .highlight {
+            /* background: var(--color-primary); */
+            /* background-color: lightcoral; */
+            /* border-bottom: 1px solid blue; */
+        }
+
+        /* ftun-tooltip {
+            border: 1px solid blue;
+            padding: 0.15rem;
+        } */
+
+        /* ftun-tooltip.important {
+            background: green;
+        } */
+
     </style>
 </head>
 <body>
@@ -19,7 +46,15 @@
     </template> -->
 
     <ftun-tooltip>Click here!</ftun-tooltip>
-    <p><ftun-tooltip>Web Components</ftun-tooltip> are awesome!</p>
+    <ftun-tooltip class="important">
+        <span class="highlight">My Text Span</span>
+    </ftun-tooltip>
+
+    <p>
+        <ftun-tooltip class="important" text="My Web Component Text Attirbute">Web Components</ftun-tooltip>
+        are awesome!
+    </p>
+    <ftun-tooltip></ftun-tooltip>
     <div>This does not get the web component style!</div>
     
     <a is="ftun-confirm-link" href="https://www.google.com/">Google</a>
