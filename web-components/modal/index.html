@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <script src="./index.js"></script>
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 2rem;
+            font-family: sans-serif;
+        }
+            
+    </style>
+</head>
+<body>
+    
+    <ftun-modal id="my-modal">
+        <p>With your confirmation you agree to pay the full amount</p>
+    </ftun-modal>
+    <p>Please confirm your choose</p>
+    <button id="btn-modal">Show Details & confirm</button>
+    <script>
+        const confirmBtn = document.querySelector('button#btn-modal');
+        const modal = document.querySelector('ftun-modal#my-modal');
+        confirmBtn.addEventListener('click', () => {
+            modal.setAttribute('opened', '');
+        });
+
+    </script>
+</body>
+</html>
