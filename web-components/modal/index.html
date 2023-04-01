@@ -21,7 +21,8 @@
 </head>
 <body>
     
-    <ftun-modal id="my-modal">
+    <ftun-modal id="my-modal" >
+        <h1 slot="title">Please confirm</h1>
         <p>With your confirmation you agree to pay the full amount</p>
     </ftun-modal>
     <p>Please confirm your choose</p>
@@ -29,8 +30,14 @@
     <script>
         const confirmBtn = document.querySelector('button#btn-modal');
         const modal = document.querySelector('ftun-modal#my-modal');
+
+        modal.addEventListener('confirm', () => console.log('confirm..'));
+        modal.addEventListener('cancel', () => console.log(' cancel..'));
+
         confirmBtn.addEventListener('click', () => {
-            modal.setAttribute('opened', '');
+            // modal.setAttribute('opened', '');
+            if (!modal.isOpen) modal.open();
+            console.log(modal.isOpen);
         });
 
     </script>
