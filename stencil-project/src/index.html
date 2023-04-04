@@ -5,10 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
+    <style>
+		body {
+			font-family: sans-serif;
+		}
+
+		.side-nav ul {
+			list-style: none;
+		}
+
+		.side-nav li {
+			margin: 1rem 0;
+		}
+
+		.side-nav a {
+			text-decoration: none;
+			color: black;
+		}
+
+		/* #btn-open-side {
+			z-index: 1000;
+			background: black;
+			color: white;
+			position: abolute;
+		} */
+    </style>
+
     <script type="module" src="/build/stencil-project.esm.js"></script>
     <script nomodule src="/build/stencil-project.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <!-- <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component> -->
+	<button id="btn-open-side">Open Side Menu</button>
+    <wc-side-drawer title="Main Menu">
+      	<nav class="side-nav">
+        	<ul>
+				<li><a href="/">A link</a></li>
+				<li><a href="/">Another Link</a></li>
+				<li><a href="/">A Thrid Link</a></li>
+        	</ul>
+    	</nav>
+    </wc-side-drawer>
+
+    <script>
+		const btnOpenSide = document.querySelector('#btn-open-side');
+        const sideDrawer = document.querySelector('wc-side-drawer');
+
+		btnOpenSide.addEventListener('click', () => {
+			if (!sideDrawer.opened) {
+				console.log('Open Btn!!!', sideDrawer.opened, sideDrawer.open);
+				// sideDrawer.open = true;
+				sideDrawer.open();
+			}
+		});
+
+		setTimeout(() => {
+          // sideDrawer.title = 'It Changed!';
+          // sideDrawer.setAttribute('title', 'It Changet via setAttribute');
+        }, 3000)
+    </script>
   </body>
 </html>
