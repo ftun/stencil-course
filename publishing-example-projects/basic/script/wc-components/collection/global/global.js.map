@@ -1,0 +1,1 @@
+{"version":3,"file":"global.js","sourceRoot":"","sources":["../../src/global/global.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,UAAU,GAAG,kBAAkB,CAAC","sourcesContent":["export const AV_API_KEY = '32VATWT27K56Q99T';"]}
